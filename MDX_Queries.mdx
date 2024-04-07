@@ -1,0 +1,38 @@
+--------- Query 1 -------------------
+SELECT   
+   [Measures].[Sales Amount] ON 0,
+    {[Dim Product].[Product Name].&[Contoso DVD Player M100 Black],
+	[Dim Product].[Product Name].&[Contoso DVD Player M110 Silver],
+	[Dim Product].[Product Name].&[Contoso DVD Player M120 White],
+	[Dim Product].[Product Name].&[Contoso DVD Player M130 Grey],
+	[Dim Product].[Product Name].&[Contoso DVD Player M140 Gold]
+	} ON 1
+FROM  
+    [Contoso Retail DW]
+WHERE 
+	[Dim Date].[Calendar Year].&[2009]
+
+--------- Query 2 -------------------
+SELECT   
+   [Measures].[Sales Amount] ON 0,
+    {[Dim Product].[Product Name].&[SV Keyboard E10 Black],
+	[Dim Product].[Product Name].&[SV Keyboard E10 Grey],
+	[Dim Product].[Product Name].&[SV Keyboard E10 Silver],
+	[Dim Product].[Product Name].&[SV Keyboard E10 White],
+	[Dim Product].[Product Name].&[SV Keyboard E90 Black],
+	[Dim Product].[Product Name].&[SV Keyboard E90 Grey],
+	[Dim Product].[Product Name].&[SV Keyboard E90 Silver],
+	[Dim Product].[Product Name].&[SV Keyboard E90 White]
+	} ON 1
+FROM  
+    [Contoso Retail DW]
+WHERE 
+	[Dim Date].[Calendar Year].members
+
+--------- Query 3 -------------------
+SELECT   
+   [Measures].[Sales Amount] ON 0,
+    {[Dim Product].[Product Name].members} ON 1
+FROM  
+    [Contoso Retail DW]
+
